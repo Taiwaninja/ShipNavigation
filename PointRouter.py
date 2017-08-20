@@ -55,6 +55,9 @@ class PointRouter(object):
         paths_found = []
         temp_routers_to_use = routers_to_use
         for router in routers_to_use:
+            # We can't use a non available router - Ignore it.
+            if not self.is_router_available(router):
+                continue
             # Remove every router we check from current, And further mapping.
             # This is because all connections are by geographic distance, And the shortest path is a straight line
             # So we will never fight a shortest path to a given router then the straight line -
