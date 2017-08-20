@@ -5,6 +5,10 @@ from shapely.geometry import Polygon
 
 
 def main():
+    """
+    The main function, Runs the navigation according to the input file,
+    And saves the output to the output file.
+    """
     start_router, end_router, routers = initialize_map()
     shortest_path = start_router.find_path(end_router, routers)
     save_results(shortest_path)
